@@ -1,10 +1,7 @@
 #User function Template for python3
 
 class Solution:
-    visited=[]
-    stk=[0]
-    res=[]
-    def dfsOfGraph(self, V, adj):
+    def dfs(self,adj):
         while self.stk:
             c = self.stk.pop()
             self.visited.append(c)
@@ -12,7 +9,12 @@ class Solution:
             for neib in adj[c]:
                 if neib not in self.visited:
                     self.stk.append(neib)
-                self.dfsOfGraph(V,adj)
+                self.dfs(adj)
+    def dfsOfGraph(self, V, adj):
+        self.visited=[]
+        self.stk=[0]
+        self.res=[]
+        self.dfs(adj)
         return self.res
 
 
